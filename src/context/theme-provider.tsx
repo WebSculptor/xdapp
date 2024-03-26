@@ -3,7 +3,6 @@ import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { type ThemeProviderProps } from "next-themes/dist/types";
 import { Toaster } from "@/components/ui/sonner";
 import { Web3Modal } from "./web3modal";
-import Connection from "./connection";
 import NetworkStatusProvider from "@/provider/NetworkStatusProvider";
 
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
