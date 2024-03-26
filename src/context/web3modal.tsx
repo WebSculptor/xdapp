@@ -12,7 +12,8 @@ import { useRouter } from "next/navigation";
 
 dotenv.config();
 
-const projectId = process.env.NEXT_WALLET_CONNECT_PROJECT_ID!;
+const projectId = "af57408dd91d275d1204a02f6afa27fb";
+// const projectId = process.env.NEXT_WALLET_CONNECT_PROJECT_ID!;
 
 export const SUPPORTED_CHAIN = 11155111;
 
@@ -21,7 +22,7 @@ const sepolia = {
   name: "Sepolia",
   currency: "ETH",
   explorerUrl: "https://sepolia.etherscan.io",
-  rpcUrl: process.env.NEXT_SEPOLIA_RPC_URL!,
+  rpcUrl: "https://sepolia.infura.io/v3/2ff61f594a6d4a83b3885bc2b464019f",
 };
 
 const metadata = {
