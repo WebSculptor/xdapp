@@ -80,7 +80,7 @@ export default function Profile() {
         ) : (
           <>
             {dummy_tweets.map((tweet, _key) => (
-              <Tweet key={_key} {...tweet} />
+              <Tweet key={_key} {...tweet} id={_key} />
             ))}
             <div className="w-full flex justify-center flex-col items-center py-6">
               <Mailbox className="w-10 h-10 opacity-70 text-muted-foreground" />

@@ -25,7 +25,7 @@ export default function Root() {
         clearTimeout(timeoutId);
       };
     }
-  }, [isConnected]);
+  }, [isConnected, router]);
 
   return isLoading && isConnected ? (
     <div className="flex items-center justify-center bg-background fixed top-0 left-0 z-50 inset-0">
