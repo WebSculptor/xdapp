@@ -7,6 +7,7 @@ import Sidebar from "@/components/shared/Sidebar";
 import Recommended from "@/components/shared/Recommended";
 import { ThemeProvider } from "@/context/theme-provider";
 import { site_config } from "@/constants";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn("font-sans antialiased", inter.className)}>
+        <Analytics />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
