@@ -13,5 +13,5 @@ export default function TweetPage() {
     }
   }, [pathname, router]);
 
-  return router.back();
+  return <div>404</div>;
 }
