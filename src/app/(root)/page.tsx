@@ -1,33 +1,26 @@
 "use client";
 
-import { useWeb3ModalAccount } from "@web3modal/ethers/react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { BsTwitterX } from "react-icons/bs";
 
 export default function Root() {
   const router = useRouter();
-  const { isConnected } = useWeb3ModalAccount();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const redirectToHome = () => {
+    const timeoutId = setTimeout(() => {
       router.push("/home");
+      setIsLoading(false);
+    }, 3000);
+
+    return () => {
+      clearTimeout(timeoutId);
     };
+  }, [router]);
 
-    if (!isConnected) {
-      router.push("/");
-    } else {
-      setIsLoading(true);
-      const timeoutId = setTimeout(redirectToHome, 3000);
-
-      return () => {
-        clearTimeout(timeoutId);
-      };
-    }
-  }, [isConnected, router]);
-
-  return isLoading && isConnected ? (
+  return isLoading ? (
     <div className="flex items-center justify-center bg-background fixed top-0 left-0 z-50 inset-0">
       <svg
         viewBox="0 0 24 24"
@@ -41,7 +34,8 @@ export default function Root() {
   ) : (
     <div className="flex items-center flex-col gap-10 justify-center bg-background fixed top-0 left-0 z-50 inset-0">
       <BsTwitterX className="w-20 h-20" />
-      <w3m-button />
+      {/* <w3m-button /> */}
+      <Link href="/home">Home</Link>
     </div>
   );
 }

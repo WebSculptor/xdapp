@@ -2,26 +2,13 @@
 
 import { shortenAddress } from "@/lib/utils";
 import { Button } from "../ui/button";
-// import { useWeb3ModalTheme } from "@web3modal/ethers/react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import Link from "next/link";
 import { site_config } from "@/constants";
-import {
-  useWeb3ModalAccount,
-  useWeb3ModalTheme,
-} from "@web3modal/ethers/react";
-import { MoveRight } from "lucide-react";
+import { MoveRight, Wallet } from "lucide-react";
 import { BsTwitterX } from "react-icons/bs";
 
 export default function Recommended() {
-  const { setThemeVariables } = useWeb3ModalTheme();
-  const { isConnected } = useWeb3ModalAccount();
-
-  setThemeVariables({
-    "--w3m-accent": "#1D9BF0",
-    "--w3m-font-size-master": "9px",
-  });
-
   return (
     <div className="flex-1 flex-col px-6 hidden lg:flex sticky top-0 z-10 h-full w-96">
       <div className="h-14 bg-background flex items-center py-1.5">
@@ -38,7 +25,9 @@ export default function Recommended() {
         <div className="w-full rounded-2xl p-4 bg-secondary dark:bg-secondary/50 space-y-3">
           <p className="text-sm">{site_config.desc}</p>
 
-          <w3m-button />
+          <Button className="rounded-full w-full">
+            Connect Wallet <Wallet className="w-4 h-4 ml-2" />
+          </Button>
         </div>
         <div className="w-full rounded-2xl py-3 px-4 bg-secondary dark:bg-secondary/50">
           <h1 className="text-base font-semibold">Who to follow</h1>

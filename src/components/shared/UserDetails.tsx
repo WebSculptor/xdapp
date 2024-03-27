@@ -6,7 +6,6 @@ import {
   HoverCardTrigger,
 } from "../ui/hover-card";
 import { CalendarIcon } from "lucide-react";
-import { useWeb3ModalAccount } from "@web3modal/ethers/react";
 
 export default function UserDetails({
   avatar,

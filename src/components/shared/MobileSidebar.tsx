@@ -8,7 +8,6 @@ import { cn, shortenAddress } from "@/lib/utils";
 import { side_links } from "@/constants";
 
 import { SwatchBook } from "lucide-react";
-import { useWeb3ModalAccount } from "@web3modal/ethers/react";
 import UserDetails from "./UserDetails";
 import { RiHomeFill, RiHomeLine } from "react-icons/ri";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";

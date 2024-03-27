@@ -5,11 +5,8 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Plus } from "lucide-react";
 import { Button } from "../ui/button";
 import PostTweet from "./PostTweet";
-import { useWeb3ModalAccount } from "@web3modal/ethers/react";
 
 export default function PopupPostTweet({ float }: { float?: boolean }) {
-  const { isConnected } = useWeb3ModalAccount();
-
   return (
     <Dialog>
       <DialogTrigger asChild>

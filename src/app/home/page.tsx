@@ -5,32 +5,25 @@ import PostTweet from "@/components/shared/PostTweet";
 import Tweet from "@/components/shared/Tweet";
 import TweetHeader from "@/components/shared/TweetHeader";
 import { dummy_tweets } from "@/constants";
-import { useWeb3ModalAccount } from "@web3modal/ethers/react";
+
 import { Inbox, Loader2, Mailbox } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  // const router = useRouter();
-  // const { isConnected } = useWeb3ModalAccount();
-  // const [isLoading, setIsLoading] = useState(true);
+  const router = useRouter();
 
-  // useEffect(() => {
-  //   const redirectToHome = () => {
-  //     router.push("/home");
-  //   };
+  const [isLoading, setIsLoading] = useState(true);
 
-  //   if (!isConnected) {
-  //     router.push("/");
-  //   } else {
-  //     setIsLoading(false);
-  //     const timeoutId = setTimeout(redirectToHome, 3000);
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
 
-  //     return () => {
-  //       clearTimeout(timeoutId);
-  //     };
-  //   }
-  // }, [isConnected]);
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, []);
 
   return (
     <div className="flex flex-col">
@@ -41,12 +34,11 @@ export default function Home() {
       <div className="flex sm:hidden fixed bottom-4 right-4 z-40 rounded-full">
         <PopupPostTweet float />
       </div>
-      {/* {isLoading ? (
+      {isLoading ? (
         <div className="w-full flex justify-center my-6">
           <Loader2 className="text-primary animate-spin" />
         </div>
-      ) : */}
-      {dummy_tweets.length === 0 ? (
+      ) : dummy_tweets.length === 0 ? (
         <div className="w-full flex justify-center flex-col items-center my-6">
           <Inbox className="w-10 h-10 opacity-70 text-muted-foreground" />
           <p className="text-muted-foreground text-sm font-medium">
